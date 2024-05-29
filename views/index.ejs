@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Game</title>
+    <style>
+      .chessboard {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        width: 400px;
+        transform: rotate(0deg);
+      }
+      .flipped {
+        transform: rotate(180deg);
+      }
+      .square {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .square.light {
+        background-color: #f0d9b5;
+      }
+      .square.dark {
+        background-color: #b58863;
+      }
+      .piece {
+        font-size: 36px;
+        cursor: pointer;
+      }
+      .piece.white {
+        color: white;
+        filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
+      }
+      .piece.black {
+        color: black;
+      }
+      .piece.draggable {
+        cursor: grab;
+      }
+      .dragging {
+        opacity: 0.5;
+      }
+      .flipped .piece {
+        transform: rotate(180deg);
+      }
+      @media (max-width: 400px) {
+        .chessboard {
+          width: 100%;
+        }
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="w-full h-screen flex flex-col items-center justify-center bg-zinc-900"
+    >
+      <h1 class="text-white text-4xl font-bold mb-6">Welcome to Chess Game</h1>
+      <div class="chessboard"></div>
+    </div>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script src="/javaScript/chessGame.js"></script>
+  </body>
+</html>
